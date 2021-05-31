@@ -6,7 +6,9 @@ import NewCocktailButton from "./NewCocktailButton";
 export default class Cocktail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      searchInput: ""
+    };
   }
 
   componentDidMount() {
@@ -22,12 +24,18 @@ export default class Cocktail extends React.Component {
       .catch((err) => console.log(err));
   }
 
+  searchInputChanged(newInput) {
+    this.setState({
+      searchInput: newInput
+    });
+  }
+
   render() {
     return (
       <div>
         <CocktailInfo cocktail={this.state} />
-        <CocktailSearchBar />
-        <NewCocktailButton />
+        <CocktailSearchBar onChange={(newInput) => this.searchInputChanged(newInput)} />
+        <NewCocktailButton onClick={() => this.getCocktailData(this.state.searchInput)}/>
       </div>
     );
   }

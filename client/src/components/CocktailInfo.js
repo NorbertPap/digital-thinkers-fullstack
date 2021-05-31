@@ -21,11 +21,11 @@ export default class CocktailInfo extends React.Component {
         <img src={this.props.cocktail.thumbnailPicture} />
 
         <div>
-          <p>Ingredients: </p>
+          <h2>Ingredients: </h2>
           {ingredientComponents}
         </div>
 
-        <p>Instructions: {this.props.cocktail.instructions}</p>
+        <h3>Instructions: {this.props.cocktail.instructions}</h3>
       </div>
     );
   }
