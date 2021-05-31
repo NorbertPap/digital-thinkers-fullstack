@@ -10,27 +10,25 @@ export default class Cocktail extends React.Component {
   }
 
   componentDidMount() {
-    this.getCocktailData()
+    this.getCocktailData();
   }
 
   getCocktailData(query) {
-    const url = query
-      ? `/api/cocktail?q=${query}`
-      : "/api/cocktail";
+    const url = query ? `/api/cocktail?q=${query}` : "/api/cocktail";
 
     fetch(url)
-      .then(res => res.json())
-      .then(data => this.setState(data))
-      .catch(err => console.log(err))
+      .then((res) => res.json())
+      .then((data) => this.setState(data))
+      .catch((err) => console.log(err));
   }
 
   render() {
     return (
       <div>
-        <CocktailInfo cocktail={this.state}/>
-        <CocktailSearchBar/>
-        <NewCocktailButton/>
+        <CocktailInfo cocktail={this.state} />
+        <CocktailSearchBar />
+        <NewCocktailButton />
       </div>
-    )
+    );
   }
 }
