@@ -1,12 +1,12 @@
-import React from 'react'
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends React.Component {
   componentWillMount() {
     fetch("/api")
-      .then(res => res.json())
-      .then(data => console.log(data))
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   }
 
   render() {
@@ -29,7 +29,6 @@ class App extends React.Component {
       </div>
     );
   }
-
 }
 
 export default App;
