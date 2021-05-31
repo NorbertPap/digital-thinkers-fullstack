@@ -5,5 +5,11 @@ export const router = express.Router();
 
 router.get("/", async function (req, res) {
   const query = req.query.q;
-  res.json(await getCocktail(query as string | undefined));
+  try {
+    res.json(await getCocktail(query as string | undefined));
+  } catch (e) {
+    res.status(500).json({
+      error: "Couldn't handle request"
+    })
+  }
 });
